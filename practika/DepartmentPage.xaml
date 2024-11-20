@@ -1,0 +1,49 @@
+﻿<Page x:Class="practika.DepartmentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:practika"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DepartmentPage">
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="DepartmentViewSource" Source="{Binding Departments}"/>
+    </Page.Resources>
+
+    <Grid Background="#FFF8F8F8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="92"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Width="169" Margin="20,0,0,0" Height="54">
+            <TextBlock Text="Кафедра" FontSize="40" FontWeight="Bold" Foreground="#333333" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,350,0"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Left" Margin="391,9,0,1">
+            <TextBox x:Name="SearchTextBox" Width="200" Height="25" Margin="0,0,10,0" TextChanged="SearchTextBox_TextChanged"/>
+            <ComboBox x:Name="SortComboBox" Width="100" Height="25" SelectionChanged="SortComboBox_SelectionChanged">
+                <ComboBoxItem Content="А-Я"/>
+                <ComboBoxItem Content="Я-А"/>
+                <ComboBoxItem Content="По умолчанию"/>
+            </ComboBox>
+            <Button x:Name="AddButton" Content="добавить" Click="AddButton_Click" Visibility="Hidden" Foreground="Black" Background="#FFD4D4D4" BorderBrush="#FFB0B0B0" FontSize="14" Height="28" Width="63" Margin="15,0,0,0"/>
+        </StackPanel>
+
+        <DataGrid x:Name="DepartmentDataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" Margin="16,10,14,20" Background="White" BorderBrush="#CCCCCC" BorderThickness="1" RowBackground="White" AlternatingRowBackground="#F9F9F9" VerticalGridLinesBrush="#DDDDDD" HorizontalGridLinesBrush="#DDDDDD" FontSize="16" ContextMenuOpening="DepartmentDataGrid_ContextMenuOpening" ItemsSource="{Binding Source={StaticResource DepartmentViewSource}}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Шифр" Binding="{Binding code}" Width="Auto" IsReadOnly="True" FontSize="16"/>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding name}" Width="Auto" IsReadOnly="True" FontSize="16"/>
+                <DataGridTextColumn Header="Номер факультета" Binding="{Binding id_faculty}" Width="*" IsReadOnly="True" FontSize="16"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Редактировать" Click="EditMenuItem_Click" Visibility="Visible"/>
+                    <MenuItem Header="Удалить" Click="DeleteMenuItem_Click" Visibility="Visible"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+    </Grid>
+</Page>
