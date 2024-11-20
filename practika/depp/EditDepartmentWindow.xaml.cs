@@ -12,14 +12,27 @@ namespace practika
 
         private DepartmentPage _parentPage;
         private Department _department;
+        private string _userRole;
+        private string _originalCode; 
 
-        public EditDepartmentWindow(DepartmentPage parentPage, Department department)
+        public EditDepartmentWindow(DepartmentPage parentPage, Department department, string userRole)
         {
             InitializeComponent();
             _parentPage = parentPage;
             _department = department;
+            _userRole = userRole;
+            _originalCode = department.code; 
             LoadDepartmentData();
             LoadFaculties();
+            InitializeControls();
+        }
+
+        private void InitializeControls()
+        {
+            if (_userRole == "Заведующий кафедрой")
+            {
+                CodeTextBox.IsReadOnly = true; 
+            }
         }
 
         private void LoadDepartmentData()
@@ -47,6 +60,7 @@ namespace practika
                 return;
             }
 
+            _department.code = code;
             _department.name = name;
             _department.id_faculty = facultyId;
 
@@ -55,5 +69,7 @@ namespace practika
             DepartmentUpdated?.Invoke();
             this.Close();
         }
+
+      
     }
 }

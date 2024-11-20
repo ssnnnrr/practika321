@@ -7,15 +7,15 @@
     <Grid Margin="0,0,0,-6">
         <StackPanel Margin="20,20,20,42">
             <TextBlock Text="Редактировать предмет" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" Foreground="{DynamicResource MaterialDesignBody}"/>
-            <TextBlock Text="Код:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}"/>
-            <ComboBox x:Name="KodComboBox" DisplayMemberPath="kod" SelectedValuePath="kod" Margin="0,0,0,20" Width="328" />
+            <TextBlock Text="Код:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}" Visibility="{Binding IsKodVisible}"/>
+            <ComboBox x:Name="KodComboBox" DisplayMemberPath="kod" SelectedValuePath="kod" Margin="0,0,0,20" Width="328" Visibility="{Binding IsKodVisible}"/>
             <TextBlock Text="Наименование:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}"/>
-            <TextBox x:Name="NameTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox x:Name="NameTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}" BorderBrush="#7F535353"/>
             <TextBlock Text="Объем часов:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}"/>
-            <TextBox x:Name="VolumeTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}"/>
-            <TextBlock Text="Исполнитель:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}"/>
-            <TextBox x:Name="ExecutorTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}"/>
-            <Button Content="save" Click="SaveButton_Click" Width="108" Style="{StaticResource MaterialDesignRaisedButton}" Background="{DynamicResource PrimaryHueMidColor}" Foreground="{DynamicResource PrimaryHueMidForegroundColor}" HorizontalAlignment="Right" Margin="0,0,15,0" FontFamily="Cooper Black" FontSize="16"/>
+            <TextBox x:Name="VolumeTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}" BorderBrush="#7F535353"/>
+            <TextBlock Text="Исполнитель:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}" Visibility="{Binding IsExecutorVisible}"/>
+            <TextBox x:Name="ExecutorTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}" BorderBrush="#7F535353" Visibility="{Binding IsExecutorVisible}"/>
+            <Button Content="сохранить" Click="SaveButton_Click" Width="121" Style="{StaticResource MaterialDesignRaisedButton}" Background="{DynamicResource PrimaryHueMidColor}" Foreground="{DynamicResource PrimaryHueMidForegroundColor}" HorizontalAlignment="Right" Margin="0,0,15,0" FontFamily="Cooper Black" FontSize="16"/>
         </StackPanel>
     </Grid>
 </Window>

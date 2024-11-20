@@ -8,19 +8,15 @@
         <StackPanel Margin="20">
             <TextBlock Text="Добавить кафедру" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" Foreground="{DynamicResource MaterialDesignBody}"/>
 
-            <!-- Текстовое поле для шифра -->
             <TextBlock Text="Шифр:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}" Height="19"/>
-            <TextBox x:Name="CodeTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox x:Name="CodeTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}" BorderBrush="#7F535353"/>
 
-            <!-- Текстовое поле для наименования -->
             <TextBlock Text="Наименование:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}" Height="19"/>
-            <TextBox x:Name="NameTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}"/>
-
-            <!-- Текстовое поле для номера факультета -->
+            <TextBox x:Name="NameTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}" BorderBrush="#7F535353"/>
             <TextBlock Text="Номер факультета:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}" Height="19"/>
             <ComboBox x:Name="FacultyIdComboBox" DisplayMemberPath="id_faculty" SelectedValuePath="id_faculty" Margin="0,0,0,20"  Width="328" Height="25"/>
 
-            <Button Content="save" Click="SaveButton_Click" Width="108" Style="{StaticResource MaterialDesignRaisedButton}" Background="{DynamicResource PrimaryHueMidColor}" Foreground="{DynamicResource PrimaryHueMidForegroundColor}" HorizontalAlignment="Right" Margin="0,0,15,0" FontFamily="Cooper Black" FontSize="16"/>
+            <Button Content="сохранить" Click="SaveButton_Click" Width="121" Style="{StaticResource MaterialDesignRaisedButton}" Background="{DynamicResource PrimaryHueMidColor}" Foreground="{DynamicResource PrimaryHueMidForegroundColor}" HorizontalAlignment="Right" Margin="0,0,15,0" FontFamily="Cooper Black" FontSize="16"/>
         </StackPanel>
     </Grid>
 </Window>

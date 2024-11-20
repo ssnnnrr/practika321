@@ -37,8 +37,6 @@ namespace practika
                 departmentList = DatabaseManager.GetDepartment();
             }
             _viewSource.Source = departmentList;
-
-
         }
 
         private void SetButtonVisibility(string userRole)
@@ -73,7 +71,8 @@ namespace practika
             Department selectedDepartment = DepartmentDataGrid.SelectedItem as Department;
             if (selectedDepartment != null)
             {
-                EditDepartmentWindow editDepartmentWindow = new EditDepartmentWindow(this, selectedDepartment);
+                string userRole = _userRole; 
+                EditDepartmentWindow editDepartmentWindow = new EditDepartmentWindow(this, selectedDepartment, userRole);
                 bool? result = editDepartmentWindow.ShowDialog();
                 if (result == true)
                 {

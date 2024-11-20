@@ -18,7 +18,7 @@
     <Grid Margin="0,0,0,-6">
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Visibility="Collapsed"/>
         <TextBlock Text="You must enter a password" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,110,0,0" FontSize="18" FontFamily="Copperplate Gothic Bold" Foreground="{DynamicResource MaterialDesignBody}"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="228" Margin="0,140,0,0" Height="33" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource CustomMaterialDesignFloatingHintPasswordBox}"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" BorderBrush="Gray" VerticalAlignment="Top" Width="228" Margin="0,140,0,0" Height="33" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource CustomMaterialDesignFloatingHintPasswordBox}"/>
         <Button Content="Qr-code" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,13,0,0" Width="90" Click="QrButtonClick" Background="{DynamicResource PrimaryHueMidColor}" Foreground="{DynamicResource PrimaryHueMidForegroundColor}" FontWeight="Bold" Height="29" Style="{StaticResource CustomMaterialDesignFlatButton}" FontFamily="Cooper Black"/>
         <Button Content="log in" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,194,0,0" Width="92" Click="OnLoginButtonClick" Background="{DynamicResource PrimaryHueMidColor}" Foreground="{DynamicResource PrimaryHueMidForegroundColor}" Height="27" FontWeight="Bold" Style="{StaticResource CustomMaterialDesignFlatButton}" FontFamily="Cooper Black"/>
     </Grid>

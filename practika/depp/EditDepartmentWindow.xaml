@@ -8,12 +8,12 @@
         <StackPanel Margin="20">
             <TextBlock Text="Редактировать кафедру" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" Foreground="{DynamicResource MaterialDesignBody}"/>
             <TextBlock Text="Шифр:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}"/>
-            <TextBox x:Name="CodeTextBox" Margin="0,0,0,20" IsReadOnly="True" Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox x:Name="CodeTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}" BorderBrush="#7F535353"/>
             <TextBlock Text="Наименование:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}"/>
-            <TextBox x:Name="NameTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox x:Name="NameTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}" BorderBrush="#7F535353"/>
             <TextBlock Text="Номер факультета:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}"/>
             <ComboBox x:Name="FacultyIdComboBox" DisplayMemberPath="name" SelectedValuePath="id_faculty" Margin="0,0,0,20" Width="328" Height="27" />
-            <Button Content="save" Click="SaveButton_Click" Width="108" Style="{StaticResource MaterialDesignRaisedButton}" Background="{DynamicResource PrimaryHueMidColor}" Foreground="{DynamicResource PrimaryHueMidForegroundColor}" HorizontalAlignment="Right" Margin="0,0,15,0" FontFamily="Cooper Black" FontSize="16"/>
+            <Button Content="сохранить" Click="SaveButton_Click" Width="121" Style="{StaticResource MaterialDesignRaisedButton}" Background="{DynamicResource PrimaryHueMidColor}" Foreground="{DynamicResource PrimaryHueMidForegroundColor}" HorizontalAlignment="Right" Margin="0,0,15,0" FontFamily="Cooper Black" FontSize="16"/>
         </StackPanel>
     </Grid>
 </Window>

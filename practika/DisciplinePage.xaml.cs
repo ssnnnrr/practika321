@@ -59,11 +59,13 @@ namespace practika
                     }
                 }
             }
-            }
+        }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddDisciplineWindow addDisciplineWindow = new AddDisciplineWindow(this);
+            string userRole = _userRole;
+            string userDepartmentCode = _userDepartment.code;
+            AddDisciplineWindow addDisciplineWindow = new AddDisciplineWindow(this, userRole, userDepartmentCode);
             bool? result = addDisciplineWindow.ShowDialog();
             if (result == true)
             {
@@ -85,7 +87,9 @@ namespace practika
             Discipline selectedDiscipline = DisciplineDataGrid.SelectedItem as Discipline;
             if (selectedDiscipline != null)
             {
-                EditDisciplineWindow editDisciplineWindow = new EditDisciplineWindow(this, selectedDiscipline);
+                string userRole = _userRole; 
+                string userDepartmentCode = _userDepartment.code; 
+                EditDisciplineWindow editDisciplineWindow = new EditDisciplineWindow(this, selectedDiscipline, userRole, userDepartmentCode);
                 bool? result = editDisciplineWindow.ShowDialog();
                 if (result == true)
                 {

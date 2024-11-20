@@ -9,11 +9,25 @@ namespace practika
     public partial class AddDisciplineWindow : Window
     {
         private DisciplinePage _parentPage;
+        private string _userRole; 
+        private string _userDepartmentCode; 
 
-        public AddDisciplineWindow(DisciplinePage parentPage)
+        public AddDisciplineWindow(DisciplinePage parentPage, string userRole, string userDepartmentCode)
         {
             InitializeComponent();
             _parentPage = parentPage;
+            _userRole = userRole;
+            _userDepartmentCode = userDepartmentCode;
+            InitializeControls();
+        }
+
+        private void InitializeControls()
+        {
+            if (_userRole == "Заведующий кафедрой")
+            {
+                ExecutorTextBox.IsEnabled = false;
+                ExecutorTextBox.Text = _userDepartmentCode;
+            }
         }
 
         public Discipline GetDiscipline()
@@ -38,6 +52,11 @@ namespace practika
             if (string.IsNullOrWhiteSpace(executor))
             {
                 throw new InvalidOperationException("Исполнитель не может быть пустым.");
+            }
+
+            if (_userRole == "Заведующий кафедрой" && executor.ToString() != _userDepartmentCode)
+            {
+                throw new InvalidOperationException("Заведующий кафедрой может добавлять новые данные только с тем же шифром, что и у него самого.");
             }
 
             return new Discipline

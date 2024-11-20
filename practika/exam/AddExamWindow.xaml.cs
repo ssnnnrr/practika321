@@ -20,7 +20,6 @@ namespace practika
 
         private void LoadData()
         {
-            // Load teachers
             List<Teacher> teachers = DatabaseManager.GetTeacher();
             if (teachers == null || teachers.Count == 0)
             {
@@ -29,11 +28,10 @@ namespace practika
             else
             {
                 TabNumComboBox.ItemsSource = teachers;
-                TabNumComboBox.DisplayMemberPath = "tab_num"; // Ensure the correct property is displayed
+                TabNumComboBox.DisplayMemberPath = "tab_num"; 
                 if (TabNumComboBox.Items.Count > 0) TabNumComboBox.SelectedIndex = 0;
             }
 
-            // Load employees
             List<Employee> employees = DatabaseManager.GetEmployee("преподаватель");
             if (employees == null || employees.Count == 0)
             {
@@ -42,11 +40,10 @@ namespace practika
             else
             {
                 KodComboBox.ItemsSource = employees;
-                KodComboBox.DisplayMemberPath = "tab_number"; // Ensure the correct property is displayed
+                KodComboBox.DisplayMemberPath = "tab_number"; 
                 if (KodComboBox.Items.Count > 0) KodComboBox.SelectedIndex = 0;
             }
 
-            // Load students
             List<Student> registrations = DatabaseManager.GetStudent();
             if (registrations == null || registrations.Count == 0)
             {
@@ -55,7 +52,7 @@ namespace practika
             else
             {
                 RegNumComboBox.ItemsSource = registrations;
-                RegNumComboBox.DisplayMemberPath = "reg_num"; // Ensure the correct property is displayed
+                RegNumComboBox.DisplayMemberPath = "reg_num"; 
                 if (RegNumComboBox.Items.Count > 0) RegNumComboBox.SelectedIndex = 0;
             }
         }
@@ -72,6 +69,11 @@ namespace practika
             if (tabNum == 0 || kod == 0 || regNum == 0 || string.IsNullOrWhiteSpace(auditorium) || estimation == 0)
             {
                 throw new InvalidOperationException("Все поля должны быть заполнены корректно.");
+            }
+
+            if (estimation < 1 || estimation > 5)
+            {
+                throw new InvalidOperationException("Оценка должна быть в диапазоне от 1 до 5.");
             }
 
             return new Exam
@@ -102,6 +104,23 @@ namespace practika
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка при сохранении экзамена: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void EstimationTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (int.TryParse(EstimationTextBox.Text, out int estimation))
+            {
+                if (estimation < 1 || estimation > 5)
+                {
+                    EstimationTextBox.Text = "1";
+                    EstimationTextBox.SelectAll();
+                }
+            }
+            else
+            {
+                EstimationTextBox.Text = "1"; 
+                EstimationTextBox.SelectAll();
             }
         }
     }

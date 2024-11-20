@@ -16,10 +16,10 @@
             <TextBlock Text="Регистрационный номер:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}"/>
             <ComboBox x:Name="RegNumComboBox" DisplayMemberPath="reg_num" SelectedValuePath="reg_num" Margin="0,0,0,20" Width="328"/>
             <TextBlock Text="Аудитория:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}"/>
-            <TextBox x:Name="AuditoriumTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox x:Name="AuditoriumTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}" BorderBrush="#7F535353"/>
             <TextBlock Text="Оценка:" Margin="0,0,0,10" Foreground="{DynamicResource MaterialDesignBody}"/>
-            <TextBox x:Name="EstimationTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}"/>
-            <Button Content="save" Click="SaveButton_Click" Width="108" Style="{StaticResource MaterialDesignRaisedButton}" Background="{DynamicResource PrimaryHueMidColor}" Foreground="{DynamicResource PrimaryHueMidForegroundColor}" HorizontalAlignment="Right" Margin="0,0,15,0" FontFamily="Cooper Black" FontSize="16"/>
+            <TextBox x:Name="EstimationTextBox" Margin="0,0,0,20" Style="{StaticResource MaterialDesignTextBox}" BorderBrush="#7F535353" TextChanged="EstimationTextBox_TextChanged"/>
+            <Button Content="сохранить" Click="SaveButton_Click" Width="121" Style="{StaticResource MaterialDesignRaisedButton}" Background="{DynamicResource PrimaryHueMidColor}" Foreground="{DynamicResource PrimaryHueMidForegroundColor}" HorizontalAlignment="Right" Margin="0,0,15,0" FontFamily="Cooper Black" FontSize="16"/>
         </StackPanel>
     </Grid>
 </Window>

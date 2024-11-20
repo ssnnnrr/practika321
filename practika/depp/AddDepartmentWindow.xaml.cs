@@ -36,6 +36,7 @@ namespace practika
                 throw new InvalidOperationException("Пожалуйста, заполните все поля корректно.");
             }
 
+
             return new Department
             {
                 code = code,
@@ -64,5 +65,7 @@ namespace practika
         {
             this.Close();
         }
+
+        
     }
 }

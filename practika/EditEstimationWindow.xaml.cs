@@ -23,11 +23,24 @@ namespace practika
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            int estimation = int.TryParse(EstimationTextBox.Text, out int est) ? est : 0;
-            _exam.estimation = estimation;
-            DatabaseManager.GetExam();
-            _parentPage.LoadExamData();
-            this.Close();
+            if (int.TryParse(EstimationTextBox.Text, out int estimation))
+            {
+                if (estimation >= 1 && estimation <= 5)
+                {
+                    _exam.estimation = estimation;
+                    DatabaseManager.GetExam(); 
+                    _parentPage.LoadExamData();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Оценка должна быть от 1 до 5.", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, введите корректное числовое значение для оценки.", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

@@ -23,13 +23,20 @@
     <SolidColorBrush x:Key="MaterialDesignBody" Color="Black"/>
     <SolidColorBrush x:Key="MaterialDesignBodyLight" Color="#B0BEC5"/>
 
+    <!-- Цвет для границы кнопки -->
+    <SolidColorBrush x:Key="ButtonBorderColor" Color="Gray"/>
+    <SolidColorBrush x:Key="ButtonBorderHoverColor" Color="LightBlue"/>
+
     <!-- Стили кнопок -->
     <Style x:Key="CustomMaterialDesignFlatButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidColor}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundColor}" />
+        <Setter Property="BorderBrush" Value="{StaticResource ButtonBorderColor}" />
+        <Setter Property="BorderThickness" Value="2" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="Gray" />
+                <Setter Property="BorderBrush" Value="DarkRed" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -38,27 +45,6 @@
     <Style x:Key="CustomMaterialDesignFloatingHintPasswordBox" TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
-    </Style>
-    <!-- Стили TextBox -->
-    <Style x:Key="CustomMaterialDesignTextBox" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
-        <Setter Property="Background" Value="{StaticResource MaterialDesignBackground}" />
-        <Setter Property="Foreground" Value="{StaticResource MaterialDesignBody}" />
-    </Style>
-
-    <!-- Стили ComboBox -->
-    <Style x:Key="CustomMaterialDesignComboBox" TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignComboBox}">
-        <Setter Property="Background" Value="{StaticResource MaterialDesignBackground}" />
-        <Setter Property="Foreground" Value="{StaticResource MaterialDesignBody}" />
-    </Style>
-
-    <!-- Стили DataGrid -->
-    <Style x:Key="CustomMaterialDesignDataGrid" TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
-        <Setter Property="Background" Value="{StaticResource MaterialDesignBackground}" />
-        <Setter Property="Foreground" Value="{StaticResource MaterialDesignBody}" />
-        <Setter Property="RowBackground" Value="{StaticResource MaterialDesignBackground}" />
-        <Setter Property="AlternatingRowBackground" Value="{StaticResource MaterialDesignBodyLight}" />
-        <Setter Property="VerticalGridLinesBrush" Value="{StaticResource MaterialDesignBodyLight}" />
-        <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource MaterialDesignBodyLight}" />
     </Style>
 
 </ResourceDictionary>

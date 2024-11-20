@@ -37,7 +37,7 @@
                 <ComboBoxItem Content="2"/>
                 <ComboBoxItem Content="1"/>
             </ComboBox>
-            <Button x:Name="AddButton" Content="добавить" Click="AddButton_Click" Visibility="Hidden" Foreground="Black" Background="#FFD4D4D4" BorderBrush="#FFB0B0B0" FontSize="14" Height="28" Width="63" Margin="15,0,0,0"/>
+            <Button x:Name="AddButton" Content="+" Click="AddButton_Click" Visibility="Hidden" Foreground="White" Background="#FF0C0365" BorderBrush="#FF1C0FA0" FontSize="14" Height="28" Width="63" Margin="15,0,0,0"/>
         </StackPanel>
 
         <DataGrid x:Name="ExamDataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" Margin="16,10,14,20" Background="White" BorderBrush="#CCCCCC" BorderThickness="1" RowBackground="White" AlternatingRowBackground="#F9F9F9" VerticalGridLinesBrush="#DDDDDD" HorizontalGridLinesBrush="#DDDDDD" FontSize="16" ItemsSource="{Binding Source={StaticResource ExamViewSource}}">
